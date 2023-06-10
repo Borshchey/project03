@@ -1,7 +1,7 @@
 package client;
 
-import addition.Connection;
-import addition.Message;
+import common.Connection;
+import common.Message;
 
 import javax.imageio.IIOException;
 import java.io.IOException;

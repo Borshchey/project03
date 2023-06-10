@@ -1,4 +1,4 @@
-package addition;
+package common;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

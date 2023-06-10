@@ -17,7 +17,7 @@ public class SendTread extends Thread{
         while (!Thread.currentThread().isInterrupted()) {
             System.out.println("Введите сообщение");
             text = scanner.nextLine();
-            if (text.equalsIgnoreCase("Выход")) Thread.currentThread().interrupt();
+            if (text.equalsIgnoreCase("/exit")) Thread.currentThread().interrupt();
             connector.sendNewMessage(clientName, text);
             System.out.println("Сообщение отправлено");
         }

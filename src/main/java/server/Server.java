@@ -1,7 +1,7 @@
 package server;
 
-import addition.Connection;
-import addition.Message;
+import common.Connection;
+import common.Message;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;

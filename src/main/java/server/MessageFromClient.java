@@ -1,7 +1,7 @@
 package server;
 
-import addition.Connection;
-import addition.Message;
+import common.Connection;
+import common.Message;
 
 public class MessageFromClient {
     private Message message;

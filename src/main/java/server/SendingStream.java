@@ -1,6 +1,6 @@
 package server;
 
-import addition.Connection;
+import common.Connection;
 
 import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
