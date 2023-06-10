@@ -1,6 +1,6 @@
 package server;
 
-import common.Connection;
+import common.ReadWrite;
 
 import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -9,9 +9,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class SendingStream extends Thread{
 
     private ArrayBlockingQueue<MessageFromClient> messages;
-    private CopyOnWriteArrayList<Connection> connectionsCollect;
+    private CopyOnWriteArrayList<ReadWrite> connectionsCollect;
 
-    public SendingStream (ArrayBlockingQueue<MessageFromClient> messages, CopyOnWriteArrayList<Connection> connectionsCollect){
+    public SendingStream (ArrayBlockingQueue<MessageFromClient> messages, CopyOnWriteArrayList<ReadWrite> connectionsCollect){
         this.messages = messages;
         this.connectionsCollect = connectionsCollect;
     }

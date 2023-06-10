@@ -1,22 +1,22 @@
 package server;
 
-import common.Connection;
+import common.ReadWrite;
 import common.Message;
 
 public class MessageFromClient {
     private Message message;
-    private Connection connection;
+    private ReadWrite readWrite;
 
-    public MessageFromClient(Message message, Connection connection) {
+    public MessageFromClient(Message message, ReadWrite readWrite) {
         this.message = message;
-        this.connection = connection;
+        this.readWrite = readWrite;
     }
 
     public Message getMessage() {
         return message;
     }
 
-    public Connection getConnection() {
-        return connection;
+    public ReadWrite getConnection() {
+        return readWrite;
     }
 }
