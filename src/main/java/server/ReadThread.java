@@ -2,7 +2,6 @@ package server;
 
 import common.Connection;
 import common.Message;
-
 import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
 

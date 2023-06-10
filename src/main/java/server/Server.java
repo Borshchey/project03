@@ -9,7 +9,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Server {
-    private int port = 1024;
+    private int port = 1111;
     private CopyOnWriteArrayList<Connection> connectionsCollect = new CopyOnWriteArrayList();
     private ArrayBlockingQueue<MessageFromClient> messages = new ArrayBlockingQueue(10, true);
 
