@@ -3,7 +3,6 @@ package client;
 import common.ReadWrite;
 import common.Message;
 
-import javax.imageio.IIOException;
 import java.io.IOException;
 import java.net.Socket;
 
@@ -17,7 +16,7 @@ public class Connector {
         try {
             readWrite = new ReadWrite<>(new Socket(ip, port));
 
-        } catch (IIOException  e){
+        } catch (IOException  e){
             System.out.println("Не удается соединится с сервером");
         }catch (Exception e){
             System.out.println("Сервер недоступен");
@@ -35,7 +34,7 @@ public class Connector {
     public Message receiveMessage(){
         try {
             return readWrite.readMessage();
-        } catch (IIOException | ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             System.out.println("Не удается прочитать сообщение");
         } catch (Exception e) {
             System.out.println("Не удается прочитать сообщение");

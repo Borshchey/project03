@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Client {
     private final String ip;
-    private final int port = 1024;
+    private final int port = 1111;
     private final String clientName;
     private Connector connector;
 
     public Client() {
-        String [] clientNames = new  String[] {"Первый", "Второй"};
+        String [] clientNames = new  String[] {"Первый", "Второй", "Третий"};
         clientName = clientNames[(int)(Math.random()*3)];
         this.ip = "0.0.0.0";
     }
