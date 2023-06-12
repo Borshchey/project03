@@ -10,15 +10,15 @@ public class Client {
 
     public Client() {
         String [] clientNames = new  String[] {"Первый", "Второй", "Третий"};
-        clientName = clientNames[(int)(Math.random()*3)];
+        clientName = clientNames[(int)(Math.random() * 3)];
         this.ip = "0.0.0.0";
     }
 
     public void startClientApp(){
-        connector = new Connector(ip,port);
+        connector = new Connector(ip, port);
         System.out.println(connector);
         Scanner scanner = new Scanner(System.in);
-        SendTread sendTread = new SendTread(scanner,connector,clientName);
+        SendTread sendTread = new SendTread(scanner, connector, clientName);
         ReceiveTread receiveTread = new ReceiveTread(connector);
         sendTread.start();
         receiveTread.start();
