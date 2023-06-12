@@ -24,15 +24,22 @@ public class Server {
             System.out.println("Сервер запущен " + serverSocket);
             new SendingStream(messages, connections).start();
             while (true) {
-                Socket socket = serverSocket.accept();
-                System.out.println("Установлено соединение с клиентом");
-                ReadWrite<Message> readWrite = new ReadWrite<>(socket);
-                connections.add(readWrite);
-                new ReadThread(messages, readWrite).start();
+                Socket socket = null;
+                try {
+                    socket = serverSocket.accept();
+                    System.out.println("Установлено соединение с клиентом");
+                    ReadWrite<Message> readWrite = new ReadWrite<>(socket);
+                    connections.add(readWrite);
+                    new ReadThread(messages, readWrite).start();
+                } catch (IOException e) {
+                    System.out.println("Не удалось установить соединение с клиентом");
+                    e.printStackTrace();
+                    if (socket != null) socket.close();
+                }
             }
         } catch (IOException e) {
             System.out.println("Порт для установки соединения занят или порт указан неверно");
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }
