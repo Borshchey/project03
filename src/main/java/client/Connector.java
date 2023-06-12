@@ -12,8 +12,8 @@ public class Connector <T>{
     private ReadWrite<Message> readWrite;
     private final String ip;
     private final int port;
-
     private File file;
+
     public Connector(String ip, int port){
         this.ip = ip;
         this.port = port;
@@ -28,7 +28,7 @@ public class Connector <T>{
     }
     public void sendNewMessage(String clientName, String messageText){
         try {
-            Message message = new Message(clientName,messageText);
+            Message message = new Message(clientName, messageText);
             readWrite.sendMessage(message);
         } catch (IOException e) {
             System.out.println("Сообщение не может быть отправлено");
