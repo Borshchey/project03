@@ -10,26 +10,28 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Server {
     private int port = 1111;
-    private CopyOnWriteArrayList<ReadWrite> connectionsCollect = new CopyOnWriteArrayList();
+    private CopyOnWriteArrayList<ReadWrite> connections;
     private ArrayBlockingQueue<MessageFromClient> messages = new ArrayBlockingQueue(10, true);
 
 
     public Server() {
         this.port = port;
+        connections = new CopyOnWriteArrayList<>();
     }
     public void startServerApp() {
         try {
             ServerSocket serverSocket = new ServerSocket(port);
             System.out.println("Сервер запущен " + serverSocket);
-            new SendingStream(messages, connectionsCollect).start();
+            new SendingStream(messages, connections).start();
             while (true) {
                 Socket socket = serverSocket.accept();
                 System.out.println("Установлено соединение с клиентом");
                 ReadWrite<Message> readWrite = new ReadWrite<>(socket);
-                connectionsCollect.add(readWrite);
+                connections.add(readWrite);
                 new ReadThread(messages, readWrite).start();
             }
         } catch (IOException e) {
+            System.out.println("Порт для установки соединения занят или порт указан неверно");
             System.out.println(e);
         }
     }
