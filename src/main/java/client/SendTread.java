@@ -7,9 +7,9 @@ public class SendTread extends Thread{
     private Connector connector;
     private String clientName;
     public SendTread(Scanner scanner, Connector connector,String clientName){
-        this.connector=connector;
-        this.scanner=scanner;
-        this.clientName=clientName;
+        this.connector = connector;
+        this.scanner = scanner;
+        this.clientName = clientName;
     }
     @Override
     public void run(){

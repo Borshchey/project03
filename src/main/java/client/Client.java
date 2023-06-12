@@ -11,7 +11,7 @@ public class Client {
     public Client() {
         String [] clientNames = new  String[] {"Первый", "Второй"};
         clientName = clientNames[(int)(Math.random()*3)];
-        this.ip="0.0.0.0";
+        this.ip = "0.0.0.0";
     }
 
     public void startClientApp(){
