@@ -44,25 +44,31 @@ public class Connector <T>{
         }
         return null;
     }
-    public static void readWithScanner(String filename) throws IOException {
+    public static String readWithScanner(String filename) throws IOException {
+        String fileText = null;
         try (Scanner scanner = new Scanner(new File(filename), StandardCharsets.UTF_8)) {
-            String line = null;
+            StringBuilder sb = new StringBuilder();
             while (scanner.hasNextLine()) {
-                line = scanner.nextLine();
+                sb.append(scanner.nextLine());
             }
             if (scanner.ioException() != null) {
                 throw scanner.ioException();
             }
+            fileText = sb.toString();
+        }
+        return fileText;
+    }
+
+    public void sendFile(String clientName, String file) {
+        try {
+            Message message = new Message(clientName, file);
+            readWrite.sendMessage(message);
+        } catch (IOException e) {
+            System.out.println("Файл не может быть отправлен");
         }
     }
 
-    public void sendFile() {
 
-    }
-
-    public void readFile(){
-
-    }
     @Override
     public String toString() {
         return "Connector{" +

@@ -26,7 +26,7 @@ public class SendTread extends Thread{
                 System.out.println("Загрузите файл");
                 try {
                     connector.readWithScanner("example.txt");
-                    connector.sendFile();
+                    connector.sendFile(clientName + " отправил файл", text);
                 } catch (IOException e) {
                     System.out.println("Не удалось прочитать файл");
                     e.printStackTrace();
@@ -37,7 +37,8 @@ public class SendTread extends Thread{
 
             if (text.equals("/readFile")) {
                 System.out.println("Введите имя файла из списка:");
-                connector.readFile();
+                String fileName = scanner.nextLine();
+                connector.receiveMessage();
             }
 
             connector.sendNewMessage(clientName, text);
